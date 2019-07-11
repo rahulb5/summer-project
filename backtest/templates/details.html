@@ -1,0 +1,41 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Stock DETAILS</title>
+</head>
+<body>
+<h1>Details:-</h1>
+<p>Total Profit: {{detail.profit}}</p>
+
+<p>Successful trade: {{detail.pos}}</p>
+<p>Unsuccessful trade: {{detail.neg}}</p>
+
+<a href= "http://127.0.0.1:8000/get_data/submit/"><button >back</button></a>
+<a href= "http://127.0.0.1:8000/deploy"><button>deploy</button></a>
+
+<table border="1" width="600">
+<tr>
+<td>#</td>
+<td>Buy price</td>
+<td>Buy date</td>
+<td>Sell Price</td>
+<td>Sell Date</td>
+<td>Profit</td>
+</tr>
+
+{% for a,b,c,d,e in zipped_list%}
+{% with temp=forloop.counter0 %}
+
+<tr>
+  <td>{{forloop.counter}}</td>
+  <td>{{a}}</td>
+  <td>{{b}}</td>
+  <td>{{c}}</td>
+  <td>{{d}}</td>
+  <td>{{e}}</td>
+</tr>
+{% endwith %}
+{%endfor%}
+</table>
+</body>
+</html>

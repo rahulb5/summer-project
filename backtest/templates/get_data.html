@@ -1,0 +1,200 @@
+{% load bootstrap4 %}
+
+<p> To enter a numeric value, enter the number in the field(only accepted in the second parameter field) </p>
+
+<form method = "POST" id = "myForm" action = "submit/">{% csrf_token %}
+
+// making a separate list to make one permanent field   
+
+    <p>Entry Condtion:</p>
+    <datalist id="exampleList">
+        <option>open</option>
+        <option>close</option>
+        <option>high</option>
+        <option>low</option
+        ><option>vol</option>
+        <option>SMA 14</option>
+        <option>SMA 100</option>
+        <option>RSI 14</option>
+        </datalist>
+    <datalist id="conditionList">
+        <option>greater than</option>
+        <option>less than</option
+        ><option>crossed above</option>
+        <option>crossed below</option>
+        <option>equal to</option>
+        </datalist>
+    <input name="entry parameter" list="exampleList" placeholder="First Parameter"/><input placeholder="Condition" name="entry condtion" list="conditionList"/><input placeholder="Second Parameter" name="second_entry_parameter" list="exampleList"/>
+    <br>
+    <div id ='entry-parameters'></div>
+    <button type="button" onclick= "add_entry_parameter()" class="btn btn-primary m-t-15 waves-effect">Add a new Entry Condition</button> 
+    <button type= "button" onclick= "remove_entry_parameter()" class= "btn btn-primary m-t-15 waves-effect">Remove Entry Condtion</button>
+    <br>
+    
+    <p>Exit Condtion</p>
+    <input name="exit parameter" list="exampleList" placeholder="First Parameter"><input placeholder="Condition" name="exit condition" list="conditionList"><input placeholder="Second Parameter" name="second exit parameter" list="exampleList"><br>
+    <div id = 'exit-parameters'></div>
+    <button type="button" onclick= "add_exit_parameter()" class="btn btn-primary m-t-15 waves-effect">Add a new Exit Condition</button> 
+    <button type= "button" onclick= "remove_exit_parameter()" class= "btn btn-primary m-t-15 waves-effect">Remove Exit Condtion</button>
+    <br>
+    <br>
+    <br>
+
+    <input type="submit" value="submit"/>
+
+</form>
+
+<script>
+
+   parameters= document.getElementById('entry-parameters');
+   exit_parameters= document.getElementById('exit-parameters');
+   var list = ['open' , 'close' , 'high' , 'low' , 'vol'];
+
+//Self explainatory
+
+    function add_entry_parameter()
+    {
+
+    		var input = document.createElement('input');
+    		var input2 = document.createElement('input');
+    		var condition = document.createElement('input');
+    		var _datalist = document.createElement('datalist');
+    		var condition_list = document.createElement('datalist');
+    		var newline = document.createElement('br');
+    		input.setAttribute('name' , 'input');
+    		input.setAttribute('list' , list);
+    		
+    		input.placeholder = "First Parameter";
+    		input.setAttribute("name" , "entry parameter");
+            input.list = 'exampleList';
+            input.setAttribute('list','exampleList')
+            input.datalist_id = 'exampleList';
+            
+            input2.placeholder = "Second Parameter";
+            input2.setAttribute("name", "second_entry_parameter");
+            input2.list = 'exampleList';
+            input2.setAttribute('list','exampleList')
+            input2.datalist_id = 'exampleList';
+            
+            condition.placeholder = "Condition";
+            condition.setAttribute("name" , "entry condtion");
+            condition.list = 'conditionList';
+            condition.setAttribute('list','conditionList')
+            condition.datalist_id = 'conditionList';
+            
+            _datalist.id = 'exampleList';
+            condition_list.id = 'conditionList';
+            
+//Add varaibles to the list as required, is the dropdown list
+
+            var list = ['open' , 'close' , 'high' , 'low' , 'vol', 'SMA 14' , 'SMA 100', 'RSI 14'];
+            
+//Add variables to the list as required, is the conditions list. Don't forget to add the conditions in 
+//check conditions in backtest and deploy, otherwise error
+            
+            var cond_list = ['greater than', 'less than' , 'crossed above' , 'crossed below', 'equal to'];
+            
+            
+            
+            for (var i = 0; i < list.length ; i++) {
+                var _option = _datalist.appendChild(document.createElement('option'));
+                _option.text =list[i];   
+            };
+            
+            for (var i = 0; i < cond_list.length ; i++) {
+                var _option = condition_list.appendChild(document.createElement('option'));
+                _option.text = cond_list[i];   
+            };
+    		
+    		
+    		parameters.appendChild(_datalist);
+    		parameters.appendChild(condition_list);
+    		parameters.appendChild(input);
+    		parameters.appendChild(condition);
+    		parameters.appendChild(input2);
+    		parameters.appendChild(newline);
+    		
+    }
+
+//Self explainatory
+
+    function remove_entry_parameter()
+    {
+        parameters.removeChild(parameters.lastElementChild);
+        parameters.removeChild(parameters.lastElementChild);
+        parameters.removeChild(parameters.lastElementChild);
+        parameters.removeChild(parameters.lastElementChild);
+        parameters.removeChild(parameters.lastElementChild);
+        parameters.removeChild(parameters.lastElementChild);
+    }
+    
+//Same as add_entry_parameter
+    
+    function add_exit_parameter()
+    {
+
+    		var input = document.createElement('input');
+    		var input2 = document.createElement('input');
+    		var condition = document.createElement('input');
+    		var _datalist = document.createElement('datalist');
+    		var condition_list = document.createElement('datalist');
+    		var newline = document.createElement('br');
+    		input.setAttribute('name' , 'input');
+    		input.setAttribute('list' , list);
+    		
+    		input.placeholder = "First Parameter";
+            input.list = 'exampleList';
+            input.setAttribute("name", "exit parameter");
+            input.setAttribute('list','exampleList')
+            input.datalist_id = 'exampleList';
+            
+            input2.placeholder = "Second Parameter";
+            input2.setAttribute("name" , "second exit parameter");
+            input2.list = 'exampleList';
+            input2.setAttribute('list','exampleList')
+            input2.datalist_id = 'exampleList';
+            
+            condition.placeholder = "Condition";
+            condition.setAttribute("name" , "exit condition");
+            condition.list = 'conditionList';
+            condition.setAttribute('list','conditionList')
+            condition.datalist_id = 'conditionList';
+            
+            _datalist.id = 'exampleList';
+            condition_list.id = 'conditionList';
+            
+            var list = ['open' , 'close' , 'high' , 'low' , 'vol'];
+            var cond_list = ['greater than', 'less than' , 'crossed above' , 'crossed below', 'equal to'];
+            
+            
+            
+            for (var i = 0; i < list.length ; i++) {
+                var _option = _datalist.appendChild(document.createElement('option'));
+                _option.text =list[i];   
+            };
+            
+            for (var i = 0; i < cond_list.length ; i++) {
+                var _option = condition_list.appendChild(document.createElement('option'));
+                _option.text = cond_list[i];   
+            };
+    		
+    		
+    		exit_parameters.appendChild(_datalist);
+    		exit_parameters.appendChild(condition_list);
+    		exit_parameters.appendChild(input);
+    		exit_parameters.appendChild(condition);
+    		exit_parameters.appendChild(input2);
+    		exit_parameters.appendChild(newline);
+    		
+    }
+    function remove_exit_parameter()
+    {
+            exit_parameters.removeChild(exit_parameters.lastElementChild);
+            exit_parameters.removeChild(exit_parameters.lastElementChild);
+            exit_parameters.removeChild(exit_parameters.lastElementChild);
+            exit_parameters.removeChild(exit_parameters.lastElementChild);
+            exit_parameters.removeChild(exit_parameters.lastElementChild);
+            exit_parameters.removeChild(exit_parameters.lastElementChild);
+    }
+
+</script>

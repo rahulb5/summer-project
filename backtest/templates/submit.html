@@ -1,0 +1,15 @@
+<p>Total Profit: {{back.profit}}</p>
+<p>Successful trade: {{back.pos}}</p>
+<p>Unsuccessful trade: {{back.neg}}</p>
+
+<a href= "http://127.0.0.1:8000/get_data/"><button >back</button></a>
+<a href= "http://127.0.0.1:8000/get_data/details"><button >details</button></a>
+
+{% if deploy == 0 %}
+<a href= "http://127.0.0.1:8000/deployed"><button>deploy</button></a>
+{% endif %}
+
+
+{% if deploy == 1 %}
+<a href= "http://127.0.0.1:8000/deploy"><button>deploy details</button></a>
+{% endif %}

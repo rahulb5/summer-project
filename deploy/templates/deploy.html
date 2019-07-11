@@ -1,0 +1,41 @@
+<head>
+
+<a href= "http://127.0.0.1:8000/truncate"> <button type= "button">truncate</button></a>
+<a href= "http://127.0.0.1:8000/get_data/submit"> <button type= "button">back</button></a>
+<table border="1" width="600">
+
+<tr>
+<td>#</td>
+<td>Buy price</td>
+<td>Buy date</td>
+
+</tr>
+{% for a,b in zipped_list1%}
+<tr>
+  <td>{{forloop.counter}}</td>
+  <td>{{a}}</td>
+  <td>{{b}}</td>
+</tr>
+{%endfor%}
+</table>
+<br>
+<br> 
+<table border="1" width="600">
+<tr>
+<td>#</td>
+<td>Sell Price</td>
+<td>Sell Date</td>
+<td>Profit</td>
+</tr>
+{% for a,b,c in zipped_list2%}
+<tr>
+  <td>{{forloop.counter}}</td>
+  <td>{{a}}</td>
+  <td>{{b}}</td>
+  <td>{{c}}</td>
+</tr>
+{%endfor%}  
+</table>
+
+</head>
+

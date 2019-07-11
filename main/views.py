@@ -16,5 +16,9 @@ def homepage(request):
     temp.deployed = 0
     temp.save()
     request.session['temp_id'] = temp.id
+    
+    var = trade()
+    var.save()
+    request.session['saved'] = var.id
    
     return render(request, "main/home.html", {})

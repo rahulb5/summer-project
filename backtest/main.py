@@ -104,8 +104,10 @@ def main(entry_condition , exit_condition):
     
     #sorting out relevant datapoints        
     
-    api_url = 'https://emt.edelweiss.in/edelmw-content/content/charts/v2/main/D1/NSE/EQUITY/11536_NSE'
-    api_key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOjAsImV4cCI6MTUzMTQ1MjU0MywiZmYiOiJNIiwiaXNzIjoiZW10IiwibmJmIjoxNTI4ODYwMjQzLCJhcHBpZCI6ImM2ZjZhMDMzYjBiZWY1OTExNzNmNjM1N2I4YTllMDYyIiwic3JjIjoiZW10bXciLCJpYXQiOjE1Mjg4NjA1NDMsImF2IjoiMTUuMSIsImJkIjoiYW5kcm9pZC1waG9uZSJ9.BruotpCV-NyiCmeSAPm_AvyeY6kYzF04TWSvtIOnpfc'
+    #enter the api url and api key
+    
+    api_url = ''
+    api_key = ''
     headers = {
         'accept': 'application/json',
         'appidkey': api_key,

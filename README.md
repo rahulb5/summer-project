@@ -49,3 +49,7 @@ indicators app was made to calculate on the go indicator values
 ```
 if any error occurs, check if variables are being created or not or empty the migrations
 ```
+
+```
+The github code does not contain the url to extract data from server
+```

@@ -73,8 +73,10 @@ def check_conditions(entry_condition, exit_condition, datapoints, temp, live_res
       
 def deployed(entry_condition, exit_condition, temp, live_results):
     
-    api_url = 'https://emt.edelweiss.in/edelmw-content/content/charts/main/M1/NSE/EQUITY/11536_NSE'
-    api_key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOjAsImV4cCI6MTU2NDE2NjU2MCwiZmYiOiJNIiwiaXNzIjoiZW10IiwibmJmIjoxNTYxNTc0MjYwLCJhcHBpZCI6IjhiMDk2N2FlMDVkMDgzMmEyNTdlMzEyNzcxYWRmMjc2Iiwic3JjIjoiZW10bXciLCJpYXQiOjE1NjE1NzQ1NjAsImF2IjoiNC4xLjEiLCJiZCI6ImFuZHJvaWQtcGhvbmUifQ.PuKISoLOvi1cf0tY_zbivH2mc4yQE_EuosVBYEPpyN4'
+    #enter the api url and api key
+    
+    api_url = ''
+    api_key = ''
     headers = {
         'accept': 'application/json',
         'appidkey': api_key,
